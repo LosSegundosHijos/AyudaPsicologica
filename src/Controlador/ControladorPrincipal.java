@@ -19,7 +19,17 @@ public class ControladorPrincipal {
     private ControladorMantenimiento cManten;
     private ControladorRegistro cReg;
     private ControladorTest cTest;
+    
     public ControladorPrincipal(){
         vP = new VistaPrincipal(this);
+    }
+    
+    public void autenticar()
+    {
+        
+    }
+
+    public void cerrar() {
+        System.exit(0);
     }
 }

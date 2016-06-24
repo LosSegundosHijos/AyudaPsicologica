@@ -38,28 +38,35 @@ public class VistaPrincipal extends javax.swing.JFrame {
         BotonRegistro = new javax.swing.JButton();
         BotonSalir = new javax.swing.JButton();
         LabelLogo = new javax.swing.JLabel();
-        LabelNombreSistema = new javax.swing.JLabel();
         LabelUnidad = new javax.swing.JLabel();
         LabelUniversidad = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         BotonAutenticar.setText("Autenticar");
+        BotonAutenticar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAutenticarPressedMM(evt);
+            }
+        });
 
         BotonRegistro.setText("Registro");
         BotonRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonRegistroActionPerformed(evt);
+                BotonRegistroPressedMM(evt);
             }
         });
 
         BotonSalir.setText("Salir");
+        BotonSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonSalirPressedMM(evt);
+            }
+        });
 
         LabelLogo.setText("imagen");
         LabelLogo.setToolTipText("");
         LabelLogo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        LabelNombreSistema.setText("Sistema de gestión");
 
         LabelUnidad.setText("Unidad de Ayuda Psicológica");
 
@@ -70,57 +77,53 @@ public class VistaPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(BotonAutenticar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BotonRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BotonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(BotonSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BotonAutenticar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BotonRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(LabelLogo)
-                        .addGap(61, 61, 61))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(LabelUnidad)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(LabelNombreSistema)
-                                .addGap(35, 35, 35))
-                            .addComponent(LabelUniversidad, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(LabelUnidad)
+                    .addComponent(LabelUniversidad))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addComponent(LabelLogo)
+                .addGap(74, 74, 74))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(BotonAutenticar)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BotonRegistro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BotonSalir))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(LabelLogo)
-                        .addGap(41, 41, 41)
-                        .addComponent(LabelNombreSistema)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(LabelUnidad)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(LabelUniversidad)))
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addGap(58, 58, 58)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelUnidad)
+                    .addComponent(LabelLogo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LabelUniversidad)
+                .addGap(57, 57, 57)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BotonSalir)
+                    .addComponent(BotonRegistro)
+                    .addComponent(BotonAutenticar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BotonRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistroActionPerformed
+    private void BotonRegistroPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistroPressedMM
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotonRegistroActionPerformed
+    }//GEN-LAST:event_BotonRegistroPressedMM
+
+    private void BotonSalirPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirPressedMM
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonSalirPressedMM
+
+    private void BotonAutenticarPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAutenticarPressedMM
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonAutenticarPressedMM
 
     
 
@@ -129,7 +132,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton BotonRegistro;
     private javax.swing.JButton BotonSalir;
     private javax.swing.JLabel LabelLogo;
-    private javax.swing.JLabel LabelNombreSistema;
     private javax.swing.JLabel LabelUnidad;
     private javax.swing.JLabel LabelUniversidad;
     // End of variables declaration//GEN-END:variables
