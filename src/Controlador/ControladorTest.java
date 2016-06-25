@@ -9,6 +9,6 @@ package Controlador;
  *
  * @author nicoo
  */
-public class ControladorTest {
+public class ControladorTest extends Controlador{
     
 }

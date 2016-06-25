@@ -9,7 +9,7 @@ package Vista;
  *
  * @author nicoo
  */
-public class VistaMantenimiento extends javax.swing.JFrame {
+public class VistaMantenimiento  extends Vista {
 
     /**
      * Creates new form VistaMantenimiento

@@ -11,7 +11,7 @@ import Controlador.ControladorPrincipal;
  *
  * @author nicoo
  */
-public class VistaPrincipal extends javax.swing.JFrame {
+public class VistaPrincipal  extends Vista {
     private ControladorPrincipal cP;
     /**
      * Creates new form VistaPrincipal2
@@ -19,10 +19,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
     public VistaPrincipal() {
         initComponents();
     }
-
+    
+    //Constructor de VistaPrincipal con el cual se inicializa un objeto de VistaPrincipal
     public VistaPrincipal(ControladorPrincipal aThis) {
+        initComponents();
         cP = aThis;
-        this.setVisible(true);
     }
 
     /**
@@ -34,14 +35,30 @@ public class VistaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        LabelLogo = new javax.swing.JLabel();
         BotonAutenticar = new javax.swing.JButton();
         BotonRegistro = new javax.swing.JButton();
         BotonSalir = new javax.swing.JButton();
-        LabelLogo = new javax.swing.JLabel();
         LabelUnidad = new javax.swing.JLabel();
         LabelUniversidad = new javax.swing.JLabel();
 
+        LabelLogo.setText("imagen");
+        LabelLogo.setToolTipText("");
+        LabelLogo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(0, 0, 600, 600));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        setForeground(java.awt.Color.lightGray);
+        setLocation(new java.awt.Point(0, 0));
+        setMaximizedBounds(new java.awt.Rectangle(0, 0, 600, 600));
+        setMaximumSize(new java.awt.Dimension(600, 600));
+        setMinimumSize(new java.awt.Dimension(600, 600));
+        setName("VistaPrincipal"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(600, 600));
+        setResizable(false);
+        setSize(new java.awt.Dimension(600, 600));
 
         BotonAutenticar.setText("Autenticar");
         BotonAutenticar.addActionListener(new java.awt.event.ActionListener() {
@@ -64,11 +81,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        LabelLogo.setText("imagen");
-        LabelLogo.setToolTipText("");
-        LabelLogo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
         LabelUnidad.setText("Unidad de Ayuda Psicológica");
+        LabelUnidad.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         LabelUniversidad.setText("Universidad de Santiago de Chile");
 
@@ -76,38 +90,37 @@ public class VistaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 213, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(BotonAutenticar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BotonRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BotonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(LabelUniversidad, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(150, 150, 150))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(BotonAutenticar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BotonRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BotonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(LabelUnidad)
-                    .addComponent(LabelUniversidad))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
-                .addComponent(LabelLogo)
-                .addGap(74, 74, 74))
+                .addGap(258, 258, 258)
+                .addComponent(LabelUnidad)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelUnidad)
-                    .addComponent(LabelLogo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(LabelUniversidad)
-                .addGap(57, 57, 57)
+                .addGap(39, 39, 39)
+                .addComponent(LabelUnidad)
+                .addGap(449, 449, 449)
+                .addComponent(LabelUniversidad, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonSalir)
                     .addComponent(BotonRegistro)
                     .addComponent(BotonAutenticar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -115,14 +128,27 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
     private void BotonRegistroPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistroPressedMM
         // TODO add your handling code here:
+        this.dispose();
+        cP.registrar();
     }//GEN-LAST:event_BotonRegistroPressedMM
 
+    //Metodo que capta cuando el BotonSalir fue presionado
     private void BotonSalirPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirPressedMM
         // TODO add your handling code here:
+        //DialogoConfirmacion = new VistaConfirmacion(this, true, "¿Estas seguro de que desea salir?");
+        //if(DialogoConfirmacion.demeEstadoConfirmacion()==true){
+          //  DialogoConfirmacion.dispose();
+            cP.cerrar();
+        //}else{
+          //  DialogoConfirmacion.dispose();
+        //}
+        
     }//GEN-LAST:event_BotonSalirPressedMM
 
     private void BotonAutenticarPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAutenticarPressedMM
         // TODO add your handling code here:
+        this.dispose();
+        cP.autenticar();
     }//GEN-LAST:event_BotonAutenticarPressedMM
 
     

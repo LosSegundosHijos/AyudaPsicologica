@@ -9,7 +9,7 @@ package Vista;
  *
  * @author nicoo
  */
-public class VistaFicha extends javax.swing.JFrame {
+public class VistaFicha  extends Vista {
 
     /**
      * Creates new form VistaFicha

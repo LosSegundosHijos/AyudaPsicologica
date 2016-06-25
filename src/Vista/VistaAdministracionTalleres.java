@@ -9,7 +9,7 @@ package Vista;
  *
  * @author nicoo
  */
-public class VistaAdministracionTalleres extends javax.swing.JFrame {
+public class VistaAdministracionTalleres extends Vista{
 
     /**
      * Creates new form VistaAdministracionTalleres

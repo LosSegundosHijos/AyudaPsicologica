@@ -18,7 +18,10 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("Iniciando aplicación");
+        //Punto de partida de la aplicacion desde el ControladorPrincipal
+        //Se declara un ControladorPPrincipal
         Controlador.ControladorPrincipal cPrincipal;
+        //Se inicializa el objeto Controlador Principal instanciado
         cPrincipal = new ControladorPrincipal();
     }
 }

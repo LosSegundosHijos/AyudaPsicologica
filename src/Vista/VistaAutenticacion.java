@@ -5,17 +5,23 @@
  */
 package Vista;
 
+import Controlador.ControladorAutenticacion;
+
 /**
  *
  * @author nicoo
  */
-public class VistaAutenticacion extends javax.swing.JFrame {
+public class VistaAutenticacion  extends Vista {
 
     /**
      * Creates new form ViewAutenticacion
      */
     public VistaAutenticacion() {
         initComponents();
+    }
+
+    public VistaAutenticacion(ControladorAutenticacion aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**

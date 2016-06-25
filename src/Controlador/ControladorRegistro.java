@@ -9,6 +9,10 @@ package Controlador;
  *
  * @author nicoo
  */
-public class ControladorRegistro {
+public class ControladorRegistro extends Controlador {
+
+    ControladorRegistro(ControladorPrincipal aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
