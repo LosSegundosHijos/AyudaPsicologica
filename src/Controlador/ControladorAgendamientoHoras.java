@@ -9,6 +9,6 @@ package Controlador;
  *
  * @author nicoo
  */
-public class ControladorAgendamientoHoras extends Controlador {
+public class ControladorAgendamientoHoras {
     
 }

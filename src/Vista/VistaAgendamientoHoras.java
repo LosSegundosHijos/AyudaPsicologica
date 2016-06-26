@@ -9,7 +9,7 @@ package Vista;
  *
  * @author nicoo
  */
-public class VistaAgendamientoHoras  extends Vista{
+public class VistaAgendamientoHoras  extends javax.swing.JFrame{
 
     /**
      * Creates new form VistaAgendamientoHoras

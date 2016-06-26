@@ -5,17 +5,26 @@
  */
 package Vista;
 
+import Controlador.ControladorRegistro;
+
 /**
  *
  * @author nicoo
  */
-public class VistaRegistro  extends Vista {
-
+public class VistaRegistro  extends javax.swing.JFrame {
+    
+    private ControladorRegistro cReg;
+    private VistaConfirmacion vConf;
     /**
      * Creates new form ViewRegistro
      */
     public VistaRegistro() {
         initComponents();
+    }
+
+    public VistaRegistro(ControladorRegistro aThis) {
+        initComponents();
+        cReg = aThis;
     }
 
     /**
@@ -27,22 +36,69 @@ public class VistaRegistro  extends Vista {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        BotonVolver = new javax.swing.JButton();
+        BotonRegistrar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Registro");
+
+        BotonVolver.setText("Volver");
+        BotonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonVolverPressedMM(evt);
+            }
+        });
+
+        BotonRegistrar.setText("Registrar");
+        BotonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonRegistrarPressedMM(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(244, Short.MAX_VALUE)
+                .addComponent(BotonRegistrar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BotonVolver)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(266, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BotonVolver)
+                    .addComponent(BotonRegistrar))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BotonVolverPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVolverPressedMM
+        // TODO add your handling code here:
+        cReg.volver();
+    }//GEN-LAST:event_BotonVolverPressedMM
+
+    private void BotonRegistrarPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarPressedMM
+        // TODO add your handling code here:
+        vConf = new VistaConfirmacion(this, true, "¿Desea confirmar el registro?");
+        if(vConf.demeEstadoQM()){
+            vConf.dispose();
+            cReg.registrar();
+        }else{
+            vConf.dispose();
+        }
+    }//GEN-LAST:event_BotonRegistrarPressedMM
+     
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonRegistrar;
+    private javax.swing.JButton BotonVolver;
     // End of variables declaration//GEN-END:variables
 }

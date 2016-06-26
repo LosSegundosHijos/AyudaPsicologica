@@ -5,13 +5,16 @@
  */
 package Controlador;
 
+import Modelo.Usuario;
 import Vista.VistaConfirmacion;
 import Vista.VistaPrincipal;
+import java.awt.Dialog;
+import javax.swing.JDialog;
 /**
  *
  * @author nicoo
  */
-public class ControladorPrincipal extends Controlador {
+public class ControladorPrincipal {
     //Se agrega una VistaPrincipal a Controlador Principal
     private VistaPrincipal vP;
     //Se agregan a continuacion los controladores que le corresponden al controlador principal
@@ -31,17 +34,45 @@ public class ControladorPrincipal extends Controlador {
         vP.setVisible(true);
     }
     
+    //Metodo que inicializa el controlador de autenticacion
     public void autenticar()
     {
+        vP.dispose();
         cAuten = new ControladorAutenticacion(this);
     }
 
     //Este metodo cierra y corta el Thread principal de la aplicacion
     public void cerrar() {
+        vP.dispose();
         System.exit(0);
     }
-
+    
+    //Metodo que inicializa el controlador de registro
     public void registrar() {
+        vP.dispose();
         cReg = new ControladorRegistro(this);
     }
+
+    //Metodo que genera nuevamente la vista 
+    //principal luego de volver desde el controlador de autenticacion
+    public void volverAutenticacion() {
+        cAuten = null;
+        vP = new VistaPrincipal(this);
+        vP.setVisible(true);
+    }
+    
+    //Metodo que genera nuevamente la vista
+    //principal luego de volver desde el controlador de registro
+    public void volverRegistro(){
+        cReg = null;
+        vP = new VistaPrincipal(this);
+        vP.setVisible(true);
+    }
+
+    //Metodo que se encarga de ingresar a una cuenta y su respectivo controlador
+    void ingresarCuenta(String tipoCuenta, Usuario user) {
+       cCuenta = new ControladorCuenta(this,tipoCuenta);
+    }
+    
+    
 }

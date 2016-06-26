@@ -11,7 +11,7 @@ import Controlador.ControladorPrincipal;
  *
  * @author nicoo
  */
-public class VistaPrincipal  extends Vista {
+public class VistaPrincipal  extends javax.swing.JFrame {
     private ControladorPrincipal cP;
     /**
      * Creates new form VistaPrincipal2
@@ -47,16 +47,15 @@ public class VistaPrincipal  extends Vista {
         LabelLogo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gestión de Ayuda Psicológica USACH");
         setBounds(new java.awt.Rectangle(0, 0, 600, 600));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         setForeground(java.awt.Color.lightGray);
         setLocation(new java.awt.Point(0, 0));
         setMaximizedBounds(new java.awt.Rectangle(0, 0, 600, 600));
-        setMaximumSize(new java.awt.Dimension(600, 600));
         setMinimumSize(new java.awt.Dimension(600, 600));
         setName("VistaPrincipal"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(600, 600));
         setResizable(false);
         setSize(new java.awt.Dimension(600, 600));
 
@@ -126,28 +125,20 @@ public class VistaPrincipal  extends Vista {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Metodo que capta cuando el BotonRegistro fue presionado
     private void BotonRegistroPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistroPressedMM
         // TODO add your handling code here:
-        this.dispose();
         cP.registrar();
     }//GEN-LAST:event_BotonRegistroPressedMM
 
     //Metodo que capta cuando el BotonSalir fue presionado
     private void BotonSalirPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirPressedMM
-        // TODO add your handling code here:
-        //DialogoConfirmacion = new VistaConfirmacion(this, true, "¿Estas seguro de que desea salir?");
-        //if(DialogoConfirmacion.demeEstadoConfirmacion()==true){
-          //  DialogoConfirmacion.dispose();
-            cP.cerrar();
-        //}else{
-          //  DialogoConfirmacion.dispose();
-        //}
+        cP.cerrar();
         
     }//GEN-LAST:event_BotonSalirPressedMM
-
+    //Metodo que capta cuando el BotonAutenticar fue presionado
     private void BotonAutenticarPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAutenticarPressedMM
         // TODO add your handling code here:
-        this.dispose();
         cP.autenticar();
     }//GEN-LAST:event_BotonAutenticarPressedMM
 

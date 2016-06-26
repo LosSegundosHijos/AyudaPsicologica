@@ -5,16 +5,22 @@
  */
 package Vista;
 
+import Controlador.ControladorCuenta;
+
 /**
  *
  * @author nicoo
  */
-public class VistaCuentaFuncionario  extends Vista {
+public class VistaCuentaFuncionario  extends javax.swing.JFrame {
 
     /**
      * Creates new form VistaCuentaFuncionario
      */
     public VistaCuentaFuncionario() {
+        initComponents();
+    }
+
+    public VistaCuentaFuncionario(ControladorCuenta aThis) {
         initComponents();
     }
 

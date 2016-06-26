@@ -10,14 +10,12 @@ package Vista;
  * @author nicoo
  */
 public class VistaConfirmacion extends javax.swing.JDialog {
-    private Vista vistaPadre;
     private boolean estado = false;
     /**
      * Creates new form VistaConfirmacion
      */
-    public VistaConfirmacion(Vista parent, boolean modal, String mensaje ) {
+    public VistaConfirmacion(java.awt.Frame parent, boolean modal, String mensaje ) {
         super(parent, modal);
-        vistaPadre = parent;
         initComponents();
         labelMensaje.setText(mensaje);
         this.setVisible(true);
@@ -41,7 +39,6 @@ public class VistaConfirmacion extends javax.swing.JDialog {
         setMaximumSize(new java.awt.Dimension(400, 200));
         setMinimumSize(new java.awt.Dimension(400, 200));
         setName("DialogoConfirmacion"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(400, 200));
         setSize(new java.awt.Dimension(400, 200));
 
         labelMensaje.setText(" mensaje");
@@ -93,15 +90,14 @@ public class VistaConfirmacion extends javax.swing.JDialog {
     private void BotonAceptarPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAceptarPressedMM
         // TODO add your handling code here:
         this.estado = true;
+        this.setVisible(false);
     }//GEN-LAST:event_BotonAceptarPressedMM
 
-    public boolean demeEstadoConfirmacion(){
-        return estado;
-    }
     
     private void BotonCancelarPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCancelarPressedMM
         // TODO add your handling code here:
         this.estado = false;
+        this.setVisible(false);
     }//GEN-LAST:event_BotonCancelarPressedMM
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -109,4 +105,8 @@ public class VistaConfirmacion extends javax.swing.JDialog {
     private javax.swing.JButton BotonCancelar;
     private javax.swing.JLabel labelMensaje;
     // End of variables declaration//GEN-END:variables
+
+    boolean demeEstadoQM() {
+        return estado;
+    }
 }
