@@ -7,6 +7,7 @@ package Controlador;
 
 import Modelo.Usuario;
 import Vista.VistaAutenticacion;
+import java.util.Arrays;
 
 /**
  *
@@ -30,10 +31,10 @@ public class ControladorAutenticacion {
     //y confirma su existencia dandole el control al controlador principal
     public void autenticar(){
         System.out.println("Autentica: "+ vAuten.demeNombreUsuarioQM());
-        System.out.println("Password: "+ vAuten.demePasswordQM());
+        System.out.println("Password: "+Arrays.toString(vAuten.demePasswordQM()));
         vAuten.dispose();
         String tipoCuenta = "Funcionario";
-        cP.ingresarCuenta(tipoCuenta, new Usuario());
+        cP.ingresarCuenta(tipoCuenta, new Usuario(null,null,null,null, null));
         
     }
 

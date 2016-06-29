@@ -35,12 +35,12 @@ public class VistaAutenticacion  extends javax.swing.JFrame {
     private void initComponents() {
 
         CuadroTextoNombreUsuario = new javax.swing.JTextField();
-        CuadroTextoPassword = new javax.swing.JTextField();
         LabelNombreUsuario = new javax.swing.JLabel();
         LabelPassword = new javax.swing.JLabel();
         BotonIngresar = new javax.swing.JButton();
         BotonVolver = new javax.swing.JButton();
         labelCorreoUsach = new javax.swing.JLabel();
+        CuadroPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Autenticación");
@@ -80,17 +80,15 @@ public class VistaAutenticacion  extends javax.swing.JFrame {
                         .addComponent(BotonIngresar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BotonVolver))
+                    .addComponent(LabelNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelPassword)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LabelNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LabelPassword)
-                            .addComponent(CuadroTextoPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(CuadroTextoNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelCorreoUsach)))
-                        .addGap(0, 17, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(CuadroPassword, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CuadroTextoNombreUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelCorreoUsach)))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,8 +102,8 @@ public class VistaAutenticacion  extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LabelPassword)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CuadroTextoPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CuadroPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonIngresar)
                     .addComponent(BotonVolver))
@@ -129,15 +127,15 @@ public class VistaAutenticacion  extends javax.swing.JFrame {
         return CuadroTextoNombreUsuario.getText();
     }
     
-    public String demePasswordQM(){
-        return CuadroTextoPassword.getText();
+    public char[] demePasswordQM(){
+        return CuadroPassword.getPassword();
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonIngresar;
     private javax.swing.JButton BotonVolver;
+    private javax.swing.JPasswordField CuadroPassword;
     private javax.swing.JTextField CuadroTextoNombreUsuario;
-    private javax.swing.JTextField CuadroTextoPassword;
     private javax.swing.JLabel LabelNombreUsuario;
     private javax.swing.JLabel LabelPassword;
     private javax.swing.JLabel labelCorreoUsach;

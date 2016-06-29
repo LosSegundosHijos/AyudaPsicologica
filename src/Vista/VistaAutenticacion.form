@@ -42,21 +42,18 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="BotonVolver" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="LabelNombreUsuario" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
-                          <Component id="LabelPassword" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="CuadroTextoPassword" alignment="0" min="-2" pref="128" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="CuadroTextoNombreUsuario" min="-2" pref="130" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="labelCorreoUsach" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                  <Component id="LabelNombreUsuario" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
+                  <Component id="LabelPassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="CuadroPassword" alignment="0" max="32767" attributes="0"/>
+                          <Component id="CuadroTextoNombreUsuario" alignment="0" pref="130" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="17" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="labelCorreoUsach" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace pref="17" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -73,8 +70,8 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="LabelPassword" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="CuadroTextoPassword" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="CuadroPassword" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="BotonIngresar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="BotonVolver" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -86,8 +83,6 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JTextField" name="CuadroTextoNombreUsuario">
-    </Component>
-    <Component class="javax.swing.JTextField" name="CuadroTextoPassword">
     </Component>
     <Component class="javax.swing.JLabel" name="LabelNombreUsuario">
       <Properties>
@@ -119,6 +114,8 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="@usach.cl"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="CuadroPassword">
     </Component>
   </SubComponents>
 </Form>

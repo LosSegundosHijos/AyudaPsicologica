@@ -10,5 +10,18 @@ package Modelo;
  * @author nicoo
  */
 public class Funcionario {
+    private boolean Mantenedor;
+
+    public Funcionario(boolean Mantenedor) {
+        this.Mantenedor = Mantenedor;
+    }
+
+    public boolean isMantenedor() {
+        return Mantenedor;
+    }
+
+    public void setMantenedor(boolean Mantenedor) {
+        this.Mantenedor = Mantenedor;
+    }
     
 }
