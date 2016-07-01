@@ -27,8 +27,6 @@ public class VistaRegistro  extends javax.swing.JFrame {
         CheckMantenedor.setEnabled(true);
         CuadroCargo.setEnabled(false);
         CuadroCarrera.setEnabled(false);
-        CuadroFacultad.setEnabled(false);
-        CuadroDepto.setEnabled(false);
         CheckAlumno.setEnabled(false);
         CuadroEdad.setEnabled(false);
         cReg = aThis;
@@ -61,12 +59,8 @@ public class VistaRegistro  extends javax.swing.JFrame {
         CheckMantenedor = new javax.swing.JCheckBox();
         CuadroCargo = new javax.swing.JTextField();
         labelCargo = new javax.swing.JLabel();
-        labelFacultad = new javax.swing.JLabel();
-        labelDepto = new javax.swing.JLabel();
         labelCarrera = new javax.swing.JLabel();
         labelEdad = new javax.swing.JLabel();
-        CuadroFacultad = new javax.swing.JTextField();
-        CuadroDepto = new javax.swing.JTextField();
         CuadroCarrera = new javax.swing.JTextField();
         CuadroEdad = new javax.swing.JTextField();
         labelAños = new javax.swing.JLabel();
@@ -74,6 +68,7 @@ public class VistaRegistro  extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registro");
+        setResizable(false);
 
         BotonVolver.setText("Volver");
         BotonVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -113,10 +108,6 @@ public class VistaRegistro  extends javax.swing.JFrame {
         CheckMantenedor.setText("Mantenedor");
 
         labelCargo.setText("Cargo");
-
-        labelFacultad.setText("Facultad");
-
-        labelDepto.setText("Departamento");
 
         labelCarrera.setText("Carrera");
 
@@ -159,18 +150,12 @@ public class VistaRegistro  extends javax.swing.JFrame {
                             .addComponent(labelCorreo))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelFacultad)
                             .addComponent(CuadroCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(labelDepto)
-                                .addComponent(labelCarrera, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(labelEdad, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(CuadroDepto, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(labelCargo)
-                                    .addComponent(CuadroCargo)
-                                    .addComponent(CuadroFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(labelCarrera)
+                            .addComponent(labelEdad)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(labelCargo)
+                                .addComponent(CuadroCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(BotonRegistrar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -191,14 +176,6 @@ public class VistaRegistro  extends javax.swing.JFrame {
                         .addComponent(labelCargo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CuadroCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labelFacultad)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CuadroFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labelDepto)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CuadroDepto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(labelCarrera)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -272,25 +249,19 @@ public class VistaRegistro  extends javax.swing.JFrame {
             CheckMantenedor.setEnabled(true);
             CuadroCargo.setEnabled(false);
             CuadroCarrera.setEnabled(false);
-            CuadroFacultad.setEnabled(false);
-            CuadroDepto.setEnabled(false);
             CheckAlumno.setEnabled(false);
             CuadroEdad.setEnabled(false);
         }else if (ComboCuenta.getSelectedIndex()==1){
             CheckMantenedor.setEnabled(false);
             CuadroCargo.setEnabled(true);
             CuadroCarrera.setEnabled(false);
-            CuadroFacultad.setEnabled(false);
-            CuadroDepto.setEnabled(false);
             CheckAlumno.setEnabled(false);
             CuadroEdad.setEnabled(false);
         }else if (ComboCuenta.getSelectedIndex()==2){
             CheckMantenedor.setEnabled(false);
             CuadroCargo.setEnabled(false);
             CheckAlumno.setEnabled(true);
-            CuadroCarrera.setEnabled(true);
-            CuadroFacultad.setEnabled(true);
-            CuadroDepto.setEnabled(true);
+            CuadroCarrera.setEnabled(false);
             CuadroEdad.setEnabled(true);
         }
     }//GEN-LAST:event_ComboCuentaItemStateChanged
@@ -299,12 +270,8 @@ public class VistaRegistro  extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(CheckAlumno.isSelected()){
             CuadroCarrera.setEnabled(true);
-            CuadroFacultad.setEnabled(true);
-            CuadroDepto.setEnabled(true);
         }else{
             CuadroCarrera.setEnabled(false);
-            CuadroFacultad.setEnabled(false);
-            CuadroDepto.setEnabled(false);
         }
     }//GEN-LAST:event_CheckAlumnoItemStateChanged
      
@@ -319,9 +286,7 @@ public class VistaRegistro  extends javax.swing.JFrame {
     private javax.swing.JTextField CuadroCargo;
     private javax.swing.JTextField CuadroCarrera;
     private javax.swing.JTextField CuadroCorreo;
-    private javax.swing.JTextField CuadroDepto;
     private javax.swing.JTextField CuadroEdad;
-    private javax.swing.JTextField CuadroFacultad;
     private javax.swing.JTextField CuadroNombre;
     private javax.swing.JPasswordField CuadroPassword;
     private javax.swing.JTextField CuadroTelefono;
@@ -331,10 +296,8 @@ public class VistaRegistro  extends javax.swing.JFrame {
     private javax.swing.JLabel labelCarrera;
     private javax.swing.JLabel labelCorreo;
     private javax.swing.JLabel labelCuenta;
-    private javax.swing.JLabel labelDepto;
     private javax.swing.JLabel labelDominioCorreo;
     private javax.swing.JLabel labelEdad;
-    private javax.swing.JLabel labelFacultad;
     private javax.swing.JLabel labelNombre;
     private javax.swing.JLabel labelPassword;
     private javax.swing.JLabel labelTelefono;

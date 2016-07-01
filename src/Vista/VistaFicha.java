@@ -5,17 +5,25 @@
  */
 package Vista;
 
+import Controlador.ControladorCuenta;
+
 /**
  *
  * @author nicoo
  */
 public class VistaFicha  extends javax.swing.JFrame {
 
+    private ControladorCuenta cCuenta;
     /**
      * Creates new form VistaFicha
      */
     public VistaFicha() {
         initComponents();
+    }
+
+    public VistaFicha(ControladorCuenta aThis) {
+        initComponents();
+        cCuenta = aThis;
     }
 
     /**
@@ -27,22 +35,170 @@ public class VistaFicha  extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        labelTelefono = new javax.swing.JLabel();
+        labelEdad = new javax.swing.JLabel();
+        labelCarrera = new javax.swing.JLabel();
+        labelNombre = new javax.swing.JLabel();
+        labelPaciente = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        labelPrioridad = new javax.swing.JLabel();
+        BotonVolver = new javax.swing.JButton();
+        PanelObs = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        ListaObs = new javax.swing.JList();
+        BotonEliminarObs = new javax.swing.JButton();
+        labelObs = new javax.swing.JLabel();
+        BotonAgregarObs = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+
+        labelTelefono.setText("Teléfono de contacto:");
+
+        labelEdad.setText("Edad:");
+
+        labelCarrera.setText("Carerra:");
+
+        labelNombre.setText("Nombre completo:");
+
+        labelPaciente.setText("Paciente");
+
+        labelPrioridad.setText("Prioridad:");
+
+        BotonVolver.setText("Volver");
+        BotonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonVolverPressedMM(evt);
+            }
+        });
+
+        PanelObs.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PanelObs.setName("PanelObservaciones"); // NOI18N
+
+        ListaObs.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "El paciente presenta signos fisicos de intentos de suicidio.", "Se le pide al paciente que relate su infancia", "Se detectan problemas familiares" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(ListaObs);
+
+        BotonEliminarObs.setText("Borrar observación");
+        BotonEliminarObs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonEliminarObsPressedMM(evt);
+            }
+        });
+
+        labelObs.setText("Observaciones");
+
+        BotonAgregarObs.setText("Agregar observación");
+
+        javax.swing.GroupLayout PanelObsLayout = new javax.swing.GroupLayout(PanelObs);
+        PanelObs.setLayout(PanelObsLayout);
+        PanelObsLayout.setHorizontalGroup(
+            PanelObsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelObsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelObsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelObsLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(BotonAgregarObs)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BotonEliminarObs))
+                    .addGroup(PanelObsLayout.createSequentialGroup()
+                        .addComponent(labelObs)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        PanelObsLayout.setVerticalGroup(
+            PanelObsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelObsLayout.createSequentialGroup()
+                .addComponent(labelObs)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelObsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BotonEliminarObs)
+                    .addComponent(BotonAgregarObs))
+                .addGap(3, 3, 3))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(PanelObs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(BotonVolver))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelCarrera)
+                            .addComponent(labelEdad)
+                            .addComponent(labelTelefono)
+                            .addComponent(labelPaciente))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(labelNombre)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labelPrioridad, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(labelPaciente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNombre)
+                    .addComponent(labelPrioridad))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelCarrera)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelEdad)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelTelefono)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PanelObs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BotonVolver)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BotonVolverPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVolverPressedMM
+        // TODO add your handling code here:
+        cCuenta.volverCuentaDesdeFicha();
+    }//GEN-LAST:event_BotonVolverPressedMM
+
+    private void BotonEliminarObsPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarObsPressedMM
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonEliminarObsPressedMM
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonAgregarObs;
+    private javax.swing.JButton BotonEliminarObs;
+    private javax.swing.JButton BotonVolver;
+    private javax.swing.JList ListaObs;
+    private javax.swing.JPanel PanelObs;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel labelCarrera;
+    private javax.swing.JLabel labelEdad;
+    private javax.swing.JLabel labelNombre;
+    private javax.swing.JLabel labelObs;
+    private javax.swing.JLabel labelPaciente;
+    private javax.swing.JLabel labelPrioridad;
+    private javax.swing.JLabel labelTelefono;
     // End of variables declaration//GEN-END:variables
 }

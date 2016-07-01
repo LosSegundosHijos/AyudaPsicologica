@@ -10,10 +10,14 @@ package Modelo;
  * @author nicoo
  */
 public class Ficha {
-    private int Prioridad;
+    private int Prioridad = 0;
 
     public Ficha(int Prioridad) {
         this.Prioridad = Prioridad;
+    }
+
+    public Ficha() {
+        
     }
 
     public int getPrioridad() {

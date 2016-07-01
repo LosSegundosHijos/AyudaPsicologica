@@ -18,8 +18,8 @@ public class ControladorPrincipal {
     //Se agrega una VistaPrincipal a Controlador Principal
     private VistaPrincipal vP;
     //Se agregan a continuacion los controladores que le corresponden al controlador principal
-    private ControladorAdministracionTalleres cAdminTalleres;
-    private ControladorAgendamientoHoras cAgendHoras;
+    private ControladorTalleres cTalleres;
+    private ControladorAgendamiento cAgendamiento;
     private ControladorAutenticacion cAuten;
     private ControladorCuenta cCuenta;
     private ControladorMantenimiento cManten;
@@ -44,6 +44,7 @@ public class ControladorPrincipal {
     //Este metodo cierra y corta el Thread principal de la aplicacion
     public void cerrar() {
         vP.dispose();
+        System.out.println("Cerrando aplicación");
         System.exit(0);
     }
     
@@ -70,9 +71,53 @@ public class ControladorPrincipal {
     }
 
     //Metodo que se encarga de ingresar a una cuenta y su respectivo controlador
-    void ingresarCuenta(String tipoCuenta, Usuario user) {
+    public void ingresarCuenta(String tipoCuenta, Usuario user) {
+       vP.dispose();
        cCuenta = new ControladorCuenta(this,tipoCuenta);
     }
+
+    public void cerrarSesion() {
+        vP = new VistaPrincipal(this);
+        vP.setVisible(true);
+        System.out.println("Sesión cerrada");
+    }
+
+    public void abrirTalleres() {
+        vP.dispose();
+        cTalleres = new ControladorTalleres(this);
+    }
+
+    public void abrirAgendamiento() {
+        vP.dispose();
+        cAgendamiento = new ControladorAgendamiento(this);
+    }
+
+    public void volverCuentaDesdeAgendamiento() {
+        cCuenta.volverCuentaDesdeAgendamiento();
+    }
     
+    public static boolean validarRut(String rut) {
+ 
+        boolean validacion = false;
+        try {
+            rut =  rut.toUpperCase();
+            rut = rut.replace(".", "");
+            rut = rut.replace("-", "");
+            int rutAux = Integer.parseInt(rut.substring(0, rut.length() - 1));
+
+            char dv = rut.charAt(rut.length() - 1);
+
+            int m = 0, s = 1;
+            for (; rutAux != 0; rutAux /= 10) {
+                s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
+            }
+            if (dv == (char) (s != 0 ? s + 47 : 75)) {
+                validacion = true;
+            }
+        } catch (java.lang.NumberFormatException e) {
+        } catch (Exception e) {
+        }
+        return validacion;
+    }
     
 }

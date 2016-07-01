@@ -15,6 +15,17 @@ public class Usuario {
     private Integer TelefonoContacto;
     private String Nombre;
     private String Apellidos;
+    private String RUT;
+
+    public Usuario(String Correo, String Password, Integer TelefonoContacto, String Nombre, String Apellidos, String RUT) {
+        this.Correo = Correo;
+        this.Password = Password;
+        this.TelefonoContacto = TelefonoContacto;
+        this.Nombre = Nombre;
+        this.Apellidos = Apellidos;
+        this.RUT = RUT;
+    }
+    
 
     public Usuario(String Correo, String Password, Integer TelefonoContacto, String Nombre, String Apellidos) {
         this.Correo = Correo;
@@ -24,6 +35,22 @@ public class Usuario {
         this.Apellidos = Apellidos;
     }
 
+    public String getApellidos() {
+        return Apellidos;
+    }
+
+    public void setApellidos(String Apellidos) {
+        this.Apellidos = Apellidos;
+    }
+
+    public String getRUT() {
+        return RUT;
+    }
+
+    public void setRUT(String RUT) {
+        this.RUT = RUT;
+    }
+    
     public String getCorreo() {
         return Correo;
     }

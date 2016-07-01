@@ -10,41 +10,19 @@ package Modelo;
  * @author nicoo
  */
 public class Paciente extends Usuario {
-    private String Facultad;
-    private String Departamento;
+    
     private String Carrera;
     private int Edad;
     private boolean esAlumno;
+    private Ficha miFicha = new Ficha();
 
-    public Paciente(String Correo, String Password, Integer TelefonoContacto, String Nombre, String Apellido) {
-        super(Correo, Password, TelefonoContacto, Nombre, Apellido);
-    }
-
-    public Paciente(String Facultad, String Departamento, String Carrera, int Edad, boolean esAlumno, String Correo, String Password, Integer TelefonoContacto, String Nombre, String Apellido) {
-        super(Correo, Password, TelefonoContacto, Nombre, Apellido);
-        this.Facultad = Facultad;
-        this.Departamento = Departamento;
+    public Paciente(String Carrera, int Edad, boolean esAlumno, String Correo, String Password, Integer TelefonoContacto, String Nombre, String Apellidos, String RUT) {
+        super(Correo, Password, TelefonoContacto, Nombre, Apellidos, RUT);
         this.Carrera = Carrera;
         this.Edad = Edad;
         this.esAlumno = esAlumno;
-    }
-
-    public String getFacultad() {
-        return Facultad;
-    }
-
-    public void setFacultad(String Facultad) {
-        this.Facultad = Facultad;
-    }
-
-    public String getDepartamento() {
-        return Departamento;
-    }
-
-    public void setDepartamento(String Departamento) {
-        this.Departamento = Departamento;
-    }
-
+    }   
+    
     public String getCarrera() {
         return Carrera;
     }
@@ -68,11 +46,12 @@ public class Paciente extends Usuario {
     public void setEsAlumno(boolean esAlumno) {
         this.esAlumno = esAlumno;
     }
-    
-    
-    
-    
 
+    public void setFicha(Ficha Ficha){
+        this.miFicha = Ficha;
+    }
     
-    
+    public Ficha getFicha() {
+        return miFicha;
+    }    
 }

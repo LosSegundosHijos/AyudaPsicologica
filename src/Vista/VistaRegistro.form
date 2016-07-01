@@ -4,6 +4,7 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="Registro"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -51,20 +52,12 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labelFacultad" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="CuadroCarrera" min="-2" pref="125" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="labelDepto" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelCarrera" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelEdad" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="CuadroDepto" alignment="1" min="-2" pref="125" max="-2" attributes="0"/>
-                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="labelCargo" min="-2" max="-2" attributes="0"/>
-                                  <Component id="CuadroCargo" max="32767" attributes="0"/>
-                                  <Component id="CuadroFacultad" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
-                              </Group>
+                          <Component id="labelCarrera" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelEdad" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                              <Component id="labelCargo" min="-2" max="-2" attributes="0"/>
+                              <Component id="CuadroCargo" min="-2" pref="125" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="BotonRegistrar" min="-2" max="-2" attributes="0"/>
@@ -93,14 +86,6 @@
                       <Component id="labelCargo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="CuadroCargo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="labelFacultad" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="CuadroFacultad" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="labelDepto" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="CuadroDepto" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="labelCarrera" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -245,16 +230,6 @@
         <Property name="text" type="java.lang.String" value="Cargo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelFacultad">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Facultad"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labelDepto">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Departamento"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="labelCarrera">
       <Properties>
         <Property name="text" type="java.lang.String" value="Carrera"/>
@@ -264,10 +239,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Edad"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="CuadroFacultad">
-    </Component>
-    <Component class="javax.swing.JTextField" name="CuadroDepto">
     </Component>
     <Component class="javax.swing.JTextField" name="CuadroCarrera">
     </Component>

@@ -12,10 +12,13 @@ package Modelo;
 public class Profesional extends Usuario {
 
     private String Cargo;
-    
-    public Profesional(String Correo, String Password, Integer TelefonoContacto, String Nombre, String Apellido) {
-        super(Correo, Password, TelefonoContacto, Nombre, Apellido);
+
+    public Profesional(String Cargo, String Correo, String Password, Integer TelefonoContacto, String Nombre, String Apellidos, String RUT) {
+        super(Correo, Password, TelefonoContacto, Nombre, Apellidos, RUT);
+        this.Cargo = Cargo;
     }
+    
+    
 
     public String getCargo() {
         return Cargo;
