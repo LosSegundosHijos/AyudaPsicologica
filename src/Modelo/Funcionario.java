@@ -9,6 +9,22 @@ package Modelo;
  *
  * @author nicoo
  */
-public class Funcionario {
+public class Funcionario extends Usuario{
+    private boolean Mantenedor;
+
+    public Funcionario(boolean Mantenedor, String Correo, String Password, Integer TelefonoContacto, String Nombre, String Apellidos, String RUT) {
+        super(Correo, Password, TelefonoContacto, Nombre, Apellidos, RUT);
+        this.Mantenedor = Mantenedor;
+    }
+
+    
+
+    public boolean isMantenedor() {
+        return Mantenedor;
+    }
+
+    public void setMantenedor(boolean Mantenedor) {
+        this.Mantenedor = Mantenedor;
+    }
     
 }

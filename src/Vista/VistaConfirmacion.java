@@ -9,13 +9,16 @@ package Vista;
  *
  * @author nicoo
  */
-public class VistaConfirmacion extends javax.swing.JFrame {
-
+public class VistaConfirmacion extends javax.swing.JDialog {
+    private boolean estado = false;
     /**
      * Creates new form VistaConfirmacion
      */
-    public VistaConfirmacion() {
+    public VistaConfirmacion(java.awt.Frame parent, boolean modal, String mensaje ) {
+        super(parent, modal);
         initComponents();
+        labelMensaje.setText(mensaje);
+        this.setVisible(true);
     }
 
     /**
@@ -27,22 +30,83 @@ public class VistaConfirmacion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        labelMensaje = new javax.swing.JLabel();
+        BotonAceptar = new javax.swing.JButton();
+        BotonCancelar = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setLocation(new java.awt.Point(200, 200));
+        setMaximumSize(new java.awt.Dimension(400, 200));
+        setMinimumSize(new java.awt.Dimension(400, 200));
+        setName("DialogoConfirmacion"); // NOI18N
+        setResizable(false);
+        setSize(new java.awt.Dimension(400, 200));
+
+        labelMensaje.setText(" mensaje");
+
+        BotonAceptar.setText("Aceptar");
+        BotonAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAceptarPressedMM(evt);
+            }
+        });
+
+        BotonCancelar.setText("Cancelar");
+        BotonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonCancelarPressedMM(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(29, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(BotonAceptar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BotonCancelar))
+                    .addComponent(labelMensaje, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(40, Short.MAX_VALUE)
+                .addComponent(labelMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BotonAceptar)
+                    .addComponent(BotonCancelar))
+                .addGap(22, 22, 22))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BotonAceptarPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAceptarPressedMM
+        // TODO add your handling code here:
+        this.estado = true;
+        this.setVisible(false);
+    }//GEN-LAST:event_BotonAceptarPressedMM
+
+    
+    private void BotonCancelarPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCancelarPressedMM
+        // TODO add your handling code here:
+        this.estado = false;
+        this.setVisible(false);
+    }//GEN-LAST:event_BotonCancelarPressedMM
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonAceptar;
+    private javax.swing.JButton BotonCancelar;
+    private javax.swing.JLabel labelMensaje;
     // End of variables declaration//GEN-END:variables
+
+    boolean demeEstadoQM() {
+        return estado;
+    }
 }

@@ -10,5 +10,88 @@ package Modelo;
  * @author nicoo
  */
 public class Usuario {
+    private String Correo;
+    private String Password;
+    private Integer TelefonoContacto;
+    private String Nombre;
+    private String Apellidos;
+    private String RUT;
+
+    public Usuario(String Correo, String Password, Integer TelefonoContacto, String Nombre, String Apellidos, String RUT) {
+        this.Correo = Correo;
+        this.Password = Password;
+        this.TelefonoContacto = TelefonoContacto;
+        this.Nombre = Nombre;
+        this.Apellidos = Apellidos;
+        this.RUT = RUT;
+    }
+    
+
+    public Usuario(String Correo, String Password, Integer TelefonoContacto, String Nombre, String Apellidos) {
+        this.Correo = Correo;
+        this.Password = Password;
+        this.TelefonoContacto = TelefonoContacto;
+        this.Nombre = Nombre;
+        this.Apellidos = Apellidos;
+    }
+
+    public String getApellidos() {
+        return Apellidos;
+    }
+
+    public void setApellidos(String Apellidos) {
+        this.Apellidos = Apellidos;
+    }
+
+    public String getRUT() {
+        return RUT;
+    }
+
+    public void setRUT(String RUT) {
+        this.RUT = RUT;
+    }
+    
+    public String getCorreo() {
+        return Correo;
+    }
+
+    public void setCorreo(String Correo) {
+        this.Correo = Correo;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String Password) {
+        this.Password = Password;
+    }
+
+    public Integer getTelefonoContacto() {
+        return TelefonoContacto;
+    }
+
+    public void setTelefonoContacto(Integer TelefonoContacto) {
+        this.TelefonoContacto = TelefonoContacto;
+    }
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
+
+    public String getApellido() {
+        return Apellidos;
+    }
+
+    public void setApellido(String Apellido) {
+        this.Apellidos = Apellido;
+    }
+    
+    
+    
     
 }

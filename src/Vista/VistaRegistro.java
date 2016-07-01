@@ -5,17 +5,31 @@
  */
 package Vista;
 
+import Controlador.ControladorRegistro;
+
 /**
  *
  * @author nicoo
  */
-public class VistaRegistro extends javax.swing.JFrame {
-
+public class VistaRegistro  extends javax.swing.JFrame {
+    
+    private ControladorRegistro cReg;
+    private VistaConfirmacion vConf;
     /**
      * Creates new form ViewRegistro
      */
     public VistaRegistro() {
         initComponents();
+    }
+
+    public VistaRegistro(ControladorRegistro aThis) {
+        initComponents();
+        CheckMantenedor.setEnabled(true);
+        CuadroCargo.setEnabled(false);
+        CuadroCarrera.setEnabled(false);
+        CheckAlumno.setEnabled(false);
+        CuadroEdad.setEnabled(false);
+        cReg = aThis;
     }
 
     /**
@@ -27,22 +41,265 @@ public class VistaRegistro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        BotonVolver = new javax.swing.JButton();
+        BotonRegistrar = new javax.swing.JButton();
+        labelCorreo = new javax.swing.JLabel();
+        labelPassword = new javax.swing.JLabel();
+        labelTelefono = new javax.swing.JLabel();
+        labelNombre = new javax.swing.JLabel();
+        labelApellidos = new javax.swing.JLabel();
+        labelDominioCorreo = new javax.swing.JLabel();
+        CuadroCorreo = new javax.swing.JTextField();
+        CuadroNombre = new javax.swing.JTextField();
+        CuadroApellidos = new javax.swing.JTextField();
+        CuadroTelefono = new javax.swing.JTextField();
+        CuadroPassword = new javax.swing.JPasswordField();
+        ComboCuenta = new javax.swing.JComboBox();
+        labelCuenta = new javax.swing.JLabel();
+        CheckMantenedor = new javax.swing.JCheckBox();
+        CuadroCargo = new javax.swing.JTextField();
+        labelCargo = new javax.swing.JLabel();
+        labelCarrera = new javax.swing.JLabel();
+        labelEdad = new javax.swing.JLabel();
+        CuadroCarrera = new javax.swing.JTextField();
+        CuadroEdad = new javax.swing.JTextField();
+        labelAños = new javax.swing.JLabel();
+        CheckAlumno = new javax.swing.JCheckBox();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Registro");
+        setResizable(false);
+
+        BotonVolver.setText("Volver");
+        BotonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonVolverPressedMM(evt);
+            }
+        });
+
+        BotonRegistrar.setText("Registrar");
+        BotonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonRegistrarPressedMM(evt);
+            }
+        });
+
+        labelCorreo.setText("Correo USACH");
+
+        labelPassword.setText("Password");
+
+        labelTelefono.setText("Telefono de contacto");
+
+        labelNombre.setText("Nombre");
+
+        labelApellidos.setText("Apellidos");
+
+        labelDominioCorreo.setText("@usach.cl");
+
+        ComboCuenta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Funcionario", "Profesional", "Paciente" }));
+        ComboCuenta.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                ComboCuentaItemStateChanged(evt);
+            }
+        });
+
+        labelCuenta.setText("Tipo de cuenta");
+
+        CheckMantenedor.setText("Mantenedor");
+
+        labelCargo.setText("Cargo");
+
+        labelCarrera.setText("Carrera");
+
+        labelEdad.setText("Edad");
+
+        labelAños.setText("años");
+
+        CheckAlumno.setText("Alumno");
+        CheckAlumno.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                CheckAlumnoItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CheckMantenedor)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(ComboCuenta, javax.swing.GroupLayout.Alignment.LEADING, 0, 125, Short.MAX_VALUE)
+                                    .addComponent(CuadroApellidos, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CuadroNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CuadroTelefono, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CuadroPassword, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CuadroCorreo, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelDominioCorreo))
+                            .addComponent(labelCuenta)
+                            .addComponent(labelNombre)
+                            .addComponent(labelPassword)
+                            .addComponent(labelTelefono)
+                            .addComponent(labelApellidos)
+                            .addComponent(labelCorreo))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CuadroCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelCarrera)
+                            .addComponent(labelEdad)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(labelCargo)
+                                .addComponent(CuadroCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(BotonRegistrar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BotonVolver))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(CuadroEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelAños))
+                            .addComponent(CheckAlumno))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelCargo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CuadroCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelCarrera)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CuadroCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelEdad)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CuadroEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelAños))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(CheckAlumno)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BotonVolver)
+                            .addComponent(BotonRegistrar)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelCuenta)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ComboCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelCorreo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CuadroCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelDominioCorreo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelPassword)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CuadroPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelTelefono)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CuadroTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelNombre)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CuadroNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelApellidos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CuadroApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CheckMantenedor)
+                        .addGap(0, 19, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BotonVolverPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVolverPressedMM
+        // TODO add your handling code here:
+        cReg.volver();
+    }//GEN-LAST:event_BotonVolverPressedMM
+
+    private void BotonRegistrarPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarPressedMM
+        // TODO add your handling code here:
+        vConf = new VistaConfirmacion(this, true, "¿Desea confirmar el registro?");
+        if(vConf.demeEstadoQM()){
+            vConf.dispose();
+            cReg.registrar();
+        }else{
+            vConf.dispose();
+        }
+    }//GEN-LAST:event_BotonRegistrarPressedMM
+
+    private void ComboCuentaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboCuentaItemStateChanged
+        // TODO add your handling code here:
+        if(ComboCuenta.getSelectedIndex()==0){
+            CheckMantenedor.setEnabled(true);
+            CuadroCargo.setEnabled(false);
+            CuadroCarrera.setEnabled(false);
+            CheckAlumno.setEnabled(false);
+            CuadroEdad.setEnabled(false);
+        }else if (ComboCuenta.getSelectedIndex()==1){
+            CheckMantenedor.setEnabled(false);
+            CuadroCargo.setEnabled(true);
+            CuadroCarrera.setEnabled(false);
+            CheckAlumno.setEnabled(false);
+            CuadroEdad.setEnabled(false);
+        }else if (ComboCuenta.getSelectedIndex()==2){
+            CheckMantenedor.setEnabled(false);
+            CuadroCargo.setEnabled(false);
+            CheckAlumno.setEnabled(true);
+            CuadroCarrera.setEnabled(false);
+            CuadroEdad.setEnabled(true);
+        }
+    }//GEN-LAST:event_ComboCuentaItemStateChanged
+
+    private void CheckAlumnoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CheckAlumnoItemStateChanged
+        // TODO add your handling code here:
+        if(CheckAlumno.isSelected()){
+            CuadroCarrera.setEnabled(true);
+        }else{
+            CuadroCarrera.setEnabled(false);
+        }
+    }//GEN-LAST:event_CheckAlumnoItemStateChanged
+     
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonRegistrar;
+    private javax.swing.JButton BotonVolver;
+    private javax.swing.JCheckBox CheckAlumno;
+    private javax.swing.JCheckBox CheckMantenedor;
+    private javax.swing.JComboBox ComboCuenta;
+    private javax.swing.JTextField CuadroApellidos;
+    private javax.swing.JTextField CuadroCargo;
+    private javax.swing.JTextField CuadroCarrera;
+    private javax.swing.JTextField CuadroCorreo;
+    private javax.swing.JTextField CuadroEdad;
+    private javax.swing.JTextField CuadroNombre;
+    private javax.swing.JPasswordField CuadroPassword;
+    private javax.swing.JTextField CuadroTelefono;
+    private javax.swing.JLabel labelApellidos;
+    private javax.swing.JLabel labelAños;
+    private javax.swing.JLabel labelCargo;
+    private javax.swing.JLabel labelCarrera;
+    private javax.swing.JLabel labelCorreo;
+    private javax.swing.JLabel labelCuenta;
+    private javax.swing.JLabel labelDominioCorreo;
+    private javax.swing.JLabel labelEdad;
+    private javax.swing.JLabel labelNombre;
+    private javax.swing.JLabel labelPassword;
+    private javax.swing.JLabel labelTelefono;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,17 +5,28 @@
  */
 package Vista;
 
+import Controlador.ControladorCuenta;
+import java.awt.event.ActionEvent;
+
 /**
  *
  * @author nicoo
  */
-public class VistaCuentaFuncionario extends javax.swing.JFrame {
-
+public class VistaCuentaFuncionario  extends javax.swing.JFrame {
+    
+    private ControladorCuenta cCuenta;
+    private VistaConfirmacion vConf;
+    private VistaConfirmacion vConfirmacion;
     /**
      * Creates new form VistaCuentaFuncionario
      */
     public VistaCuentaFuncionario() {
         initComponents();
+    }
+
+    public VistaCuentaFuncionario(ControladorCuenta aThis) {
+        initComponents();
+        this.cCuenta= aThis;
     }
 
     /**
@@ -27,22 +38,160 @@ public class VistaCuentaFuncionario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        BotonAgendarSesion = new javax.swing.JButton();
+        BotonCerrarSesion = new javax.swing.JButton();
+        BotonTalleres = new javax.swing.JButton();
+        labelFuncionario = new javax.swing.JLabel();
+        BotonVerFicha = new javax.swing.JButton();
+        labelRut = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        labelBusquedaFichas = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        CampoRut = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+
+        BotonAgendarSesion.setText("Agendar sesión");
+        BotonAgendarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAgendarSesionPressedMM(evt);
+            }
+        });
+
+        BotonCerrarSesion.setText("Cerrar Sesión");
+        BotonCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonCerrarSesionPressedMM(evt);
+            }
+        });
+
+        BotonTalleres.setText("Talleres");
+        BotonTalleres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonTalleresPressedMM(evt);
+            }
+        });
+
+        labelFuncionario.setText("Funcionario: ");
+
+        BotonVerFicha.setText("Ver Ficha");
+        BotonVerFicha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonVerFichaPressedMM(evt);
+            }
+        });
+
+        labelRut.setText("Ingrese RUT de paciente:");
+
+        labelBusquedaFichas.setText("Busqueda de ficha");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 6, Short.MAX_VALUE)
+                        .addComponent(BotonVerFicha)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BotonAgendarSesion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BotonTalleres)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BotonCerrarSesion))
+                    .addComponent(jSeparator2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelFuncionario)
+                            .addComponent(labelBusquedaFichas)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelRut)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CampoRut, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelFuncionario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelBusquedaFichas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelRut)
+                    .addComponent(CampoRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BotonTalleres)
+                    .addComponent(BotonAgendarSesion)
+                    .addComponent(BotonCerrarSesion)
+                    .addComponent(BotonVerFicha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BotonVerFichaPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVerFichaPressedMM
+        // TODO add your handling code here:
+        cCuenta.abrirFicha();
+    }//GEN-LAST:event_BotonVerFichaPressedMM
+
+    private void BotonAgendarSesionPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgendarSesionPressedMM
+        // TODO add your handling code here:
+        cCuenta.abrirAgendamiento();
+    }//GEN-LAST:event_BotonAgendarSesionPressedMM
+
+    private void BotonTalleresPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonTalleresPressedMM
+        // TODO add your handling code here:
+        cCuenta.abrirTalleres();
+    }//GEN-LAST:event_BotonTalleresPressedMM
+
+    private void BotonCerrarSesionPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCerrarSesionPressedMM
+        // TODO add your handling code here:
+        vConf = new VistaConfirmacion(this, true, "ATENCIÓN, confirme el cierre de sesión");
+        if(vConf.demeEstadoQM()){
+            vConf.dispose();
+            cCuenta.cerrarSesion();
+        }else{
+            vConf.dispose();
+        }
+        
+    }//GEN-LAST:event_BotonCerrarSesionPressedMM
+    
+    public String demePacienteQM(){
+        return CampoRut.getText();
+    }
+            
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonAgendarSesion;
+    private javax.swing.JButton BotonCerrarSesion;
+    private javax.swing.JButton BotonTalleres;
+    private javax.swing.JButton BotonVerFicha;
+    private javax.swing.JTextField CampoRut;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel labelBusquedaFichas;
+    private javax.swing.JLabel labelFuncionario;
+    private javax.swing.JLabel labelRut;
     // End of variables declaration//GEN-END:variables
+
+    public void MuestreRutInvalidoFM() {
+        vConfirmacion = new VistaConfirmacion(this, true, "Rut ingresado inválido");
+        if(vConfirmacion.demeEstadoQM()){
+            vConfirmacion.dispose();
+        }else{
+            vConfirmacion.dispose();
+        }
+    }
 }
