@@ -27,9 +27,8 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jSeparator1" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="77" max="32767" attributes="0"/>
                       <Component id="BotonVerFicha" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="BotonAgendarSesion" min="-2" max="-2" attributes="0"/>
@@ -38,16 +37,18 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="BotonCerrarSesion" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="jSeparator1" alignment="1" max="32767" attributes="0"/>
                   <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="labelFuncionario" min="-2" max="-2" attributes="0"/>
                           <Component id="labelBusquedaFichas" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="labelRut" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelRUT" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="CampoRut" min="-2" pref="130" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="labelNombreFuncionario" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -62,24 +63,28 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="labelFuncionario" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="labelNombreFuncionario" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="12" max="32767" attributes="0"/>
+              <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
               <Component id="labelBusquedaFichas" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelRut" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelRUT" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="CampoRut" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-              <Component id="jSeparator2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="BotonTalleres" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="BotonAgendarSesion" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="BotonCerrarSesion" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="BotonVerFicha" alignment="0" max="32767" attributes="0"/>
+              <Component id="jSeparator2" min="-2" pref="9" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="BotonTalleres" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="BotonAgendarSesion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="BotonCerrarSesion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="BotonVerFicha" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -111,7 +116,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="labelFuncionario">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Funcionario: "/>
+        <Property name="text" type="java.lang.String" value="Funcionario"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="BotonVerFicha">
@@ -122,7 +127,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonVerFichaPressedMM"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelRut">
+    <Component class="javax.swing.JLabel" name="labelRUT">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ingrese RUT de paciente:"/>
       </Properties>
@@ -137,6 +142,11 @@
     <Component class="javax.swing.JSeparator" name="jSeparator2">
     </Component>
     <Component class="javax.swing.JTextField" name="CampoRut">
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelNombreFuncionario">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nombre: "/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

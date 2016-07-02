@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -12,29 +13,29 @@ import java.util.Date;
  * @author nicoo
  */
 public class Bloque {
-    private Date FechaHoraInicio;
-    private Date FechaHoraTermino;
+    private Calendar FechaHoraInicio;
+    private Calendar FechaHoraTermino;
     private boolean Reservado;
 
-    public Bloque(Date FechaHoraInicio, Date FechaHoraTermino, boolean Reservado) {
+    public Bloque(Calendar FechaHoraInicio, Calendar FechaHoraTermino, boolean Reservado) {
         this.FechaHoraInicio = FechaHoraInicio;
         this.FechaHoraTermino = FechaHoraTermino;
         this.Reservado = Reservado;
     }
 
-    public Date getFechaHoraInicio() {
+    public Calendar getFechaHoraInicio() {
         return FechaHoraInicio;
     }
 
-    public void setFechaHoraInicio(Date FechaHoraInicio) {
+    public void setFechaHoraInicio(Calendar FechaHoraInicio) {
         this.FechaHoraInicio = FechaHoraInicio;
     }
 
-    public Date getFechaHoraTermino() {
+    public Calendar getFechaHoraTermino() {
         return FechaHoraTermino;
     }
 
-    public void setFechaHoraTermino(Date FechaHoraTermino) {
+    public void setFechaHoraTermino(Calendar FechaHoraTermino) {
         this.FechaHoraTermino = FechaHoraTermino;
     }
 

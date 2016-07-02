@@ -5,9 +5,18 @@
  */
 package Controlador;
 
+import Modelo.BaseDatos;
+import Modelo.Bloque;
 import Modelo.Paciente;
 import Vista.VistaAgendamiento;
-import Vista.VistaConfirmacion;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Locale;
+import java.util.Random;
+import java.util.TimeZone;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -42,4 +51,39 @@ public class ControladorAgendamiento {
             vAgenda.MuestreRutInvalidoFM();
         }
     }
+
+    public void cambioDeProfesional() {
+        String nombre = vAgenda.demeProfesionalSeleccionadoQM();
+        //Con este profesional seleccionado buscar 
+        //la informacion de sus bloques        
+        Bloque[] horarios = new Bloque[20];
+        Calendar inicio = null;
+        Calendar fin = null;
+        for (int i=0; i< horarios.length;i++){
+            int year = 2016;
+            int month = 7;
+            int day = new Random().nextInt(30);
+            int hour = new Random().nextInt(18);
+            int minute = new Random().nextInt(59);
+            inicio=new GregorianCalendar(year,month,day,hour,minute);
+            minute = minute+20;
+            fin = new GregorianCalendar(year,month,day,hour,minute);
+            horarios[i] = new Bloque(inicio,fin ,false);
+        }
+        DefaultListModel  model = new DefaultListModel();
+        for(int i=0;i<horarios.length;i++){
+            model.addElement(
+                    horarios[i].getFechaHoraInicio().getDisplayName(Calendar.DAY_OF_WEEK,Calendar.SHORT,Locale.ROOT)+" "+
+                    horarios[i].getFechaHoraInicio().getDisplayName(Calendar.MONTH,Calendar.LONG,Locale.ENGLISH)+"/"+
+                    String.valueOf(horarios[i].getFechaHoraInicio().get(Calendar.DATE))+" "+
+                    String.valueOf(horarios[i].getFechaHoraInicio().get(Calendar.HOUR))+":"+
+                    String.valueOf(horarios[i].getFechaHoraInicio().get(Calendar.MINUTE))+ " hasta "+
+                    String.valueOf(horarios[i].getFechaHoraTermino().get(Calendar.HOUR))+":"+
+                    String.valueOf(horarios[i].getFechaHoraTermino().get(Calendar.MINUTE)));
+        }                
+        vAgenda.MostrarHorariosFM(model);
+    }
 }
+
+
+

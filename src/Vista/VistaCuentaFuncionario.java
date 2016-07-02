@@ -43,11 +43,12 @@ public class VistaCuentaFuncionario  extends javax.swing.JFrame {
         BotonTalleres = new javax.swing.JButton();
         labelFuncionario = new javax.swing.JLabel();
         BotonVerFicha = new javax.swing.JButton();
-        labelRut = new javax.swing.JLabel();
+        labelRUT = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         labelBusquedaFichas = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         CampoRut = new javax.swing.JTextField();
+        labelNombreFuncionario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -73,7 +74,7 @@ public class VistaCuentaFuncionario  extends javax.swing.JFrame {
             }
         });
 
-        labelFuncionario.setText("Funcionario: ");
+        labelFuncionario.setText("Funcionario");
 
         BotonVerFicha.setText("Ver Ficha");
         BotonVerFicha.addActionListener(new java.awt.event.ActionListener() {
@@ -82,9 +83,11 @@ public class VistaCuentaFuncionario  extends javax.swing.JFrame {
             }
         });
 
-        labelRut.setText("Ingrese RUT de paciente:");
+        labelRUT.setText("Ingrese RUT de paciente:");
 
         labelBusquedaFichas.setText("Busqueda de ficha");
+
+        labelNombreFuncionario.setText("Nombre: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,9 +96,8 @@ public class VistaCuentaFuncionario  extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 6, Short.MAX_VALUE)
+                        .addGap(0, 77, Short.MAX_VALUE)
                         .addComponent(BotonVerFicha)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BotonAgendarSesion)
@@ -103,15 +105,17 @@ public class VistaCuentaFuncionario  extends javax.swing.JFrame {
                         .addComponent(BotonTalleres)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BotonCerrarSesion))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jSeparator2)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelFuncionario)
                             .addComponent(labelBusquedaFichas)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelRut)
+                                .addComponent(labelRUT)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CampoRut, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(CampoRut, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labelNombreFuncionario))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -121,22 +125,25 @@ public class VistaCuentaFuncionario  extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(labelFuncionario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelNombreFuncionario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
                 .addComponent(labelBusquedaFichas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelRut)
+                    .addComponent(labelRUT)
                     .addComponent(CampoRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotonTalleres)
-                    .addComponent(BotonAgendarSesion)
-                    .addComponent(BotonCerrarSesion)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(BotonTalleres)
+                        .addComponent(BotonAgendarSesion)
+                        .addComponent(BotonCerrarSesion))
                     .addComponent(BotonVerFicha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -154,7 +161,13 @@ public class VistaCuentaFuncionario  extends javax.swing.JFrame {
 
     private void BotonTalleresPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonTalleresPressedMM
         // TODO add your handling code here:
-        cCuenta.abrirTalleres();
+        vConf = new VistaConfirmacion(this, true, "Funcionalidad no implementada aún");
+        if(vConf.demeEstadoQM()){
+            vConf.dispose();
+        }else{
+            vConf.dispose();
+        }
+        //cCuenta.abrirTalleres();
     }//GEN-LAST:event_BotonTalleresPressedMM
 
     private void BotonCerrarSesionPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCerrarSesionPressedMM
@@ -183,7 +196,8 @@ public class VistaCuentaFuncionario  extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel labelBusquedaFichas;
     private javax.swing.JLabel labelFuncionario;
-    private javax.swing.JLabel labelRut;
+    private javax.swing.JLabel labelNombreFuncionario;
+    private javax.swing.JLabel labelRUT;
     // End of variables declaration//GEN-END:variables
 
     public void MuestreRutInvalidoFM() {
