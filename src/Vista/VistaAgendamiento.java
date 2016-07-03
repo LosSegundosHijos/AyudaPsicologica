@@ -6,6 +6,7 @@
 package Vista;
 
 import Controlador.ControladorAgendamiento;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -27,8 +28,7 @@ public class VistaAgendamiento  extends javax.swing.JFrame{
         initComponents();
         cAgenda = aThis;
         ComboBoxPorfesionales.setEnabled(false);
-        ComboBoxFecha.setEnabled(false);
-        ComboBoxBloque.setEnabled(false);
+        ListaHorarios.setEnabled(false);
     }
 
     /**
@@ -46,12 +46,6 @@ public class VistaAgendamiento  extends javax.swing.JFrame{
         ComboBoxPorfesionales = new javax.swing.JComboBox();
         labelSelProf = new javax.swing.JLabel();
         labelInfoProf = new javax.swing.JLabel();
-        PanelHorario = new javax.swing.JPanel();
-        labelHorario = new javax.swing.JLabel();
-        labelSelFecha = new javax.swing.JLabel();
-        labelSelBloque = new javax.swing.JLabel();
-        ComboBoxBloque = new javax.swing.JComboBox();
-        ComboBoxFecha = new javax.swing.JComboBox();
         PanelPaciente = new javax.swing.JPanel();
         labelHorario1 = new javax.swing.JLabel();
         labelRUT = new javax.swing.JLabel();
@@ -59,6 +53,10 @@ public class VistaAgendamiento  extends javax.swing.JFrame{
         labelPrioridad = new javax.swing.JLabel();
         BotonBuscarPaciente = new javax.swing.JButton();
         labelNombrePaciente = new javax.swing.JLabel();
+        PanelHorario1 = new javax.swing.JPanel();
+        labelHorario2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ListaHorarios = new javax.swing.JList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -71,10 +69,20 @@ public class VistaAgendamiento  extends javax.swing.JFrame{
         });
 
         BotonAgendarHorario.setText("Agendar bloque");
+        BotonAgendarHorario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAgendarHorarioPressedMM(evt);
+            }
+        });
 
         PanelProfesional.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         ComboBoxPorfesionales.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Omar Matus", "Rodrigo Ramírez", "Carlos Espinoza" }));
+        ComboBoxPorfesionales.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                ComboBoxPorfesionalesItemStateChanged(evt);
+            }
+        });
 
         labelSelProf.setText("Seleccione profesional");
 
@@ -85,64 +93,27 @@ public class VistaAgendamiento  extends javax.swing.JFrame{
         PanelProfesionalLayout.setHorizontalGroup(
             PanelProfesionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelProfesionalLayout.createSequentialGroup()
-                .addGap(2, 2, 2)
-                .addComponent(labelInfoProf))
-            .addGroup(PanelProfesionalLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(labelSelProf)
-                .addGap(10, 10, 10)
-                .addComponent(ComboBoxPorfesionales, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(PanelProfesionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelProfesionalLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(labelInfoProf))
+                    .addGroup(PanelProfesionalLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(ComboBoxPorfesionales, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelProfesionalLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(labelSelProf)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         PanelProfesionalLayout.setVerticalGroup(
             PanelProfesionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelProfesionalLayout.createSequentialGroup()
                 .addGap(2, 2, 2)
                 .addComponent(labelInfoProf)
-                .addGap(6, 6, 6)
-                .addGroup(PanelProfesionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelProfesionalLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(labelSelProf))
-                    .addComponent(ComboBoxPorfesionales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-
-        PanelHorario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        labelHorario.setText("Horario");
-
-        labelSelFecha.setText("Seleccione fecha:");
-
-        labelSelBloque.setText("Seleccione bloque horario:");
-
-        javax.swing.GroupLayout PanelHorarioLayout = new javax.swing.GroupLayout(PanelHorario);
-        PanelHorario.setLayout(PanelHorarioLayout);
-        PanelHorarioLayout.setHorizontalGroup(
-            PanelHorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelHorarioLayout.createSequentialGroup()
-                .addGroup(PanelHorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelHorario)
-                    .addGroup(PanelHorarioLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(labelSelFecha)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ComboBoxFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labelSelBloque)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ComboBoxBloque, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(112, Short.MAX_VALUE))
-        );
-        PanelHorarioLayout.setVerticalGroup(
-            PanelHorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelHorarioLayout.createSequentialGroup()
-                .addComponent(labelHorario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PanelHorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelSelFecha)
-                    .addComponent(labelSelBloque)
-                    .addComponent(ComboBoxBloque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ComboBoxFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addComponent(labelSelProf)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ComboBoxPorfesionales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -172,15 +143,16 @@ public class VistaAgendamiento  extends javax.swing.JFrame{
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(PanelPacienteLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelRUT)
+                .addGroup(PanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelPacienteLayout.createSequentialGroup()
+                        .addComponent(labelRUT)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CampoRut, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BotonBuscarPaciente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CampoRut, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelNombrePaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelPrioridad, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BotonBuscarPaciente)
+                .addGroup(PanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelNombrePaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelPrioridad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         PanelPacienteLayout.setVerticalGroup(
@@ -191,10 +163,47 @@ public class VistaAgendamiento  extends javax.swing.JFrame{
                 .addGroup(PanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelRUT)
                     .addComponent(CampoRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelPrioridad)
-                    .addComponent(BotonBuscarPaciente)
                     .addComponent(labelNombrePaciente))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGroup(PanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BotonBuscarPaciente)
+                    .addComponent(labelPrioridad))
+                .addContainerGap())
+        );
+
+        PanelHorario1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        labelHorario2.setText("Horario");
+
+        ListaHorarios.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Lunes 04/07 - 9:40", "Lunes 11/07 - 12:30" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        ListaHorarios.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(ListaHorarios);
+
+        javax.swing.GroupLayout PanelHorario1Layout = new javax.swing.GroupLayout(PanelHorario1);
+        PanelHorario1.setLayout(PanelHorario1Layout);
+        PanelHorario1Layout.setHorizontalGroup(
+            PanelHorario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelHorario1Layout.createSequentialGroup()
+                .addComponent(labelHorario2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        PanelHorario1Layout.setVerticalGroup(
+            PanelHorario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelHorario1Layout.createSequentialGroup()
+                .addGroup(PanelHorario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelHorario1Layout.createSequentialGroup()
+                        .addComponent(labelHorario2)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(PanelHorario1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -204,14 +213,17 @@ public class VistaAgendamiento  extends javax.swing.JFrame{
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PanelHorario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(BotonAgendarHorario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BotonVolver))
-                    .addComponent(PanelProfesional, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PanelPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(PanelPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(PanelProfesional, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(PanelHorario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -220,14 +232,14 @@ public class VistaAgendamiento  extends javax.swing.JFrame{
                 .addContainerGap()
                 .addComponent(PanelPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PanelProfesional, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanelHorario1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelProfesional, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PanelHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotonVolver)
-                    .addComponent(BotonAgendarHorario))
-                .addContainerGap())
+                    .addComponent(BotonAgendarHorario)
+                    .addComponent(BotonVolver))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -242,6 +254,16 @@ public class VistaAgendamiento  extends javax.swing.JFrame{
         // TODO add your handling code here:
         cAgenda.buscarPaciente();
     }//GEN-LAST:event_BotonBuscarPacientePressedMM
+
+    private void ComboBoxPorfesionalesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboBoxPorfesionalesItemStateChanged
+        // TODO add your handling code here:
+        cAgenda.cambioDeProfesional();
+    }//GEN-LAST:event_ComboBoxPorfesionalesItemStateChanged
+
+    private void BotonAgendarHorarioPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgendarHorarioPressedMM
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_BotonAgendarHorarioPressedMM
     
     public VistaConfirmacion getVistaConfirmacion(){
         return this.vConfirmacion;
@@ -255,20 +277,18 @@ public class VistaAgendamiento  extends javax.swing.JFrame{
     private javax.swing.JButton BotonBuscarPaciente;
     private javax.swing.JButton BotonVolver;
     private javax.swing.JTextField CampoRut;
-    private javax.swing.JComboBox ComboBoxBloque;
-    private javax.swing.JComboBox ComboBoxFecha;
     private javax.swing.JComboBox ComboBoxPorfesionales;
-    private javax.swing.JPanel PanelHorario;
+    private javax.swing.JList ListaHorarios;
+    private javax.swing.JPanel PanelHorario1;
     private javax.swing.JPanel PanelPaciente;
     private javax.swing.JPanel PanelProfesional;
-    private javax.swing.JLabel labelHorario;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelHorario1;
+    private javax.swing.JLabel labelHorario2;
     private javax.swing.JLabel labelInfoProf;
     private javax.swing.JLabel labelNombrePaciente;
     private javax.swing.JLabel labelPrioridad;
     private javax.swing.JLabel labelRUT;
-    private javax.swing.JLabel labelSelBloque;
-    private javax.swing.JLabel labelSelFecha;
     private javax.swing.JLabel labelSelProf;
     // End of variables declaration//GEN-END:variables
 
@@ -295,5 +315,14 @@ public class VistaAgendamiento  extends javax.swing.JFrame{
         CampoRut.setEnabled(false);
         //Se activan los controles para profesionales
         ComboBoxPorfesionales.setEnabled(true);
+    }
+
+    public String demeProfesionalSeleccionadoQM() {
+        return (String) ComboBoxPorfesionales.getSelectedItem();
+    }
+
+    public void MostrarHorariosFM(DefaultListModel modeloHorarios) {
+        ListaHorarios.setModel(modeloHorarios);
+        ListaHorarios.setEnabled(true);
     }
 }

@@ -14,6 +14,7 @@ import Controlador.ControladorCuenta;
 public class VistaCuentaProfesional  extends javax.swing.JFrame {
     private ControladorCuenta cCuenta;
     private VistaConfirmacion vConfirmacion;
+    private VistaConfirmacion vConf;
 
     /**
      * Creates new form VistaCuentaProfesional
@@ -37,32 +38,124 @@ public class VistaCuentaProfesional  extends javax.swing.JFrame {
     private void initComponents() {
 
         CampoRut = new javax.swing.JTextField();
+        BotonCerrarSesion = new javax.swing.JButton();
+        BotonVerFicha = new javax.swing.JButton();
+        labelProfesional = new javax.swing.JLabel();
+        labelNombreProfesional = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        labelBusquedaFichas = new javax.swing.JLabel();
+        labelRut = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+
+        BotonCerrarSesion.setText("Cerrar Sesión");
+        BotonCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonCerrarSesionPressedMM(evt);
+            }
+        });
+
+        BotonVerFicha.setText("Ver Ficha");
+        BotonVerFicha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonVerFichaPressedMM(evt);
+            }
+        });
+
+        labelProfesional.setText("Profesional");
+
+        labelNombreProfesional.setText("Nombre: ");
+
+        labelBusquedaFichas.setText("Busqueda de ficha");
+
+        labelRut.setText("Ingrese RUT de paciente:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addComponent(CampoRut, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(labelProfesional))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(labelNombreProfesional))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(labelBusquedaFichas)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelRut)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CampoRut, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(BotonVerFicha)
+                                .addGap(8, 8, 8)
+                                .addComponent(BotonCerrarSesion)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(CampoRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(246, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(labelProfesional)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelNombreProfesional)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelBusquedaFichas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelRut)
+                    .addComponent(CampoRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BotonVerFicha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotonCerrarSesion))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BotonCerrarSesionPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCerrarSesionPressedMM
+        // TODO add your handling code here:
+        vConf = new VistaConfirmacion(this, true, "ATENCIÓN, confirme el cierre de sesión");
+        if(vConf.demeEstadoQM()){
+            vConf.dispose();
+            cCuenta.cerrarSesion();
+        }else{
+            vConf.dispose();
+        }
+
+    }//GEN-LAST:event_BotonCerrarSesionPressedMM
+
+    private void BotonVerFichaPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVerFichaPressedMM
+        // TODO add your handling code here:
+        cCuenta.abrirFicha();
+    }//GEN-LAST:event_BotonVerFichaPressedMM
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonCerrarSesion;
+    private javax.swing.JButton BotonVerFicha;
     private javax.swing.JTextField CampoRut;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel labelBusquedaFichas;
+    private javax.swing.JLabel labelNombreProfesional;
+    private javax.swing.JLabel labelProfesional;
+    private javax.swing.JLabel labelRut;
     // End of variables declaration//GEN-END:variables
 
     public String demePacienteQM() {
