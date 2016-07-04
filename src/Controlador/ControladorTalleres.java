@@ -19,6 +19,7 @@ public class ControladorTalleres {
         cP = aThis;
         vT = new VistaTalleres();
         vT.setVisible(true);
+        vT.setLocationRelativeTo(null);
     }
     
 }

@@ -200,12 +200,4 @@ public class VistaCuentaFuncionario  extends javax.swing.JFrame {
     private javax.swing.JLabel labelRUT;
     // End of variables declaration//GEN-END:variables
 
-    public void MuestreRutInvalidoFM() {
-        vConfirmacion = new VistaConfirmacion(this, true, "Rut ingresado inválido");
-        if(vConfirmacion.demeEstadoQM()){
-            vConfirmacion.dispose();
-        }else{
-            vConfirmacion.dispose();
-        }
-    }
 }

@@ -161,13 +161,4 @@ public class VistaCuentaProfesional  extends javax.swing.JFrame {
     public String demePacienteQM() {
         return CampoRut.getText();
     }
-
-    public void MuestreRutInvalidoFM() {
-        vConfirmacion = new VistaConfirmacion(this, true, "Rut ingresado inválido");
-        if(vConfirmacion.demeEstadoQM()){
-            vConfirmacion.dispose();
-        }else{
-            vConfirmacion.dispose();
-        }
-    }
 }

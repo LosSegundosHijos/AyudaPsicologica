@@ -11,6 +11,7 @@ import Vista.VistaCuentaFuncionario;
 import Vista.VistaCuentaProfesional;
 import Vista.VistaFicha;
 import java.io.FileReader;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,10 +29,12 @@ public class ControladorCuenta{
         if(tipoCuenta == "Funcionario"){
             vCuentaFun = new VistaCuentaFuncionario(this);
             vCuentaFun.setVisible(true);
+            vCuentaFun.setLocationRelativeTo(null);
             flagTipoCuenta = true;
         }else if(tipoCuenta == "Profesional"){
             vCuentaPro = new VistaCuentaProfesional(this);
             vCuentaPro.setVisible(true);
+            vCuentaPro.setLocationRelativeTo(null);
             flagTipoCuenta = false;
         }
         this.cP = aThis;
@@ -71,16 +74,18 @@ public class ControladorCuenta{
                 vCuentaFun.setEnabled(false);
                 vF = new VistaFicha(this);
                 vF.setVisible(true);
+                vF.setLocationRelativeTo(null);
             }else{
-                vCuentaFun.MuestreRutInvalidoFM();
+                JOptionPane.showMessageDialog(null,"El Rut ingresado no es válido.");
             }
         }else{
             if(cP.validarRut(vCuentaPro.demePacienteQM())){
                 vCuentaPro.setEnabled(false);
                 vF = new VistaFicha(this);
                 vF.setVisible(true);
+                vF.setLocationRelativeTo(null);
             }else{
-                vCuentaPro.MuestreRutInvalidoFM();
+                JOptionPane.showMessageDialog(null,"El Rut ingresado no es válido.");
             }
         }
         

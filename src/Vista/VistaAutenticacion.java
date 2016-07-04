@@ -6,6 +6,7 @@
 package Vista;
 
 import Controlador.ControladorAutenticacion;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -115,7 +116,13 @@ public class VistaAutenticacion  extends javax.swing.JFrame {
 
     private void BotonIngresarPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonIngresarPressedMM
         // TODO add your handling code here:
-        cAuten.autenticar();
+        if(CuadroTextoNombreUsuario.getText().equals("")||
+            CuadroPassword.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Debe llenar todos los campos");
+        }
+        else{
+            cAuten.autenticar();
+        }
     }//GEN-LAST:event_BotonIngresarPressedMM
 
     private void BotonVolverPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVolverPressedMM

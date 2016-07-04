@@ -6,6 +6,7 @@
 package Vista;
 
 import Controlador.ControladorRegistro;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -96,6 +97,12 @@ public class VistaRegistro  extends javax.swing.JFrame {
 
         labelDominioCorreo.setText("@usach.cl");
 
+        CuadroCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CuadroCorreoActionPerformed(evt);
+            }
+        });
+
         ComboCuenta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Funcionario", "Profesional", "Paciente" }));
         ComboCuenta.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -153,9 +160,8 @@ public class VistaRegistro  extends javax.swing.JFrame {
                             .addComponent(CuadroCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelCarrera)
                             .addComponent(labelEdad)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(labelCargo)
-                                .addComponent(CuadroCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labelCargo)
+                            .addComponent(CuadroCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(BotonRegistrar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -234,12 +240,25 @@ public class VistaRegistro  extends javax.swing.JFrame {
 
     private void BotonRegistrarPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarPressedMM
         // TODO add your handling code here:
-        vConf = new VistaConfirmacion(this, true, "¿Desea confirmar el registro?");
-        if(vConf.demeEstadoQM()){
-            vConf.dispose();
-            cReg.registrar();
-        }else{
-            vConf.dispose();
+        if(CuadroCorreo.getText().equals("")    ||
+            CuadroApellidos.getText().equals("")||
+            CuadroTelefono.getText().equals("") ||
+            CuadroPassword.getText().equals("") ||
+            CuadroNombre.getText().equals("")){
+            //if(ComboCuenta.getSelectedIndex()==0)
+            JOptionPane.showMessageDialog(null,"Debe llenar todos los campos");
+            //CuadroCarrera.getText().equals("")  ||
+            //CuadroEdad.getText().equals("")     ||
+        }
+        else{
+            vConf = new VistaConfirmacion(this, true, "¿Desea confirmar el registro?");
+
+            if(vConf.demeEstadoQM()){
+                vConf.dispose();
+                cReg.registrar();
+            }else{
+                vConf.dispose();
+            }
         }
     }//GEN-LAST:event_BotonRegistrarPressedMM
 
@@ -274,6 +293,10 @@ public class VistaRegistro  extends javax.swing.JFrame {
             CuadroCarrera.setEnabled(false);
         }
     }//GEN-LAST:event_CheckAlumnoItemStateChanged
+
+    private void CuadroCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CuadroCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CuadroCorreoActionPerformed
      
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

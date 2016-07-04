@@ -19,6 +19,7 @@ public class ControladorRegistro {
         this.cP = aThis;
         this.vReg = new VistaRegistro(this);
         this.vReg.setVisible(true);
+        vReg.setLocationRelativeTo(null);
     }
 
     public void volver() {

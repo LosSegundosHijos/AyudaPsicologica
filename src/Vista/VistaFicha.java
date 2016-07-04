@@ -6,6 +6,8 @@
 package Vista;
 
 import Controlador.ControladorCuenta;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -25,7 +27,16 @@ public class VistaFicha  extends javax.swing.JFrame {
         initComponents();
         cCuenta = aThis;
     }
-
+    
+    //MODEL
+    DefaultListModel dm = new DefaultListModel();
+    
+    //ADD TO LIST
+    private void add(String text){
+        ListaObs.setModel(dm);
+        dm.addElement((text));
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,6 +60,8 @@ public class VistaFicha  extends javax.swing.JFrame {
         BotonEliminarObs = new javax.swing.JButton();
         labelObs = new javax.swing.JLabel();
         BotonAgregarObs = new javax.swing.JButton();
+        TextComentarios = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -75,11 +88,6 @@ public class VistaFicha  extends javax.swing.JFrame {
         PanelObs.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         PanelObs.setName("PanelObservaciones"); // NOI18N
 
-        ListaObs.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "El paciente presenta signos fisicos de intentos de suicidio.", "Se le pide al paciente que relate su infancia", "Se detectan problemas familiares" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane2.setViewportView(ListaObs);
 
         BotonEliminarObs.setText("Borrar observación");
@@ -92,6 +100,19 @@ public class VistaFicha  extends javax.swing.JFrame {
         labelObs.setText("Observaciones");
 
         BotonAgregarObs.setText("Agregar observación");
+        BotonAgregarObs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAgregarObsActionPerformed(evt);
+            }
+        });
+
+        TextComentarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextComentariosActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Ingrese Aquí sus comentarios");
 
         javax.swing.GroupLayout PanelObsLayout = new javax.swing.GroupLayout(PanelObs);
         PanelObs.setLayout(PanelObsLayout);
@@ -101,22 +122,31 @@ public class VistaFicha  extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(PanelObsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
+                    .addGroup(PanelObsLayout.createSequentialGroup()
+                        .addComponent(labelObs)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelObsLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(BotonAgregarObs)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BotonEliminarObs))
-                    .addGroup(PanelObsLayout.createSequentialGroup()
-                        .addComponent(labelObs)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(TextComentarios, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
+            .addGroup(PanelObsLayout.createSequentialGroup()
+                .addGap(211, 211, 211)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelObsLayout.setVerticalGroup(
             PanelObsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelObsLayout.createSequentialGroup()
                 .addComponent(labelObs)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TextComentarios, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelObsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BotonEliminarObs)
@@ -183,7 +213,26 @@ public class VistaFicha  extends javax.swing.JFrame {
 
     private void BotonEliminarObsPressedMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarObsPressedMM
         // TODO add your handling code here:
+        int index = ListaObs.getSelectedIndex();
+        dm.removeElementAt(index);
+       
     }//GEN-LAST:event_BotonEliminarObsPressedMM
+
+    private void TextComentariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextComentariosActionPerformed
+        TextComentarios.setText("");
+    }//GEN-LAST:event_TextComentariosActionPerformed
+
+    private void BotonAgregarObsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarObsActionPerformed
+
+        if(TextComentarios.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Debe ingresar algun comentario.");
+
+        }
+        else{
+            add(TextComentarios.getText());
+            TextComentarios.setText("");
+        }          
+    }//GEN-LAST:event_BotonAgregarObsActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAgregarObs;
@@ -191,6 +240,8 @@ public class VistaFicha  extends javax.swing.JFrame {
     private javax.swing.JButton BotonVolver;
     private javax.swing.JList ListaObs;
     private javax.swing.JPanel PanelObs;
+    private javax.swing.JTextField TextComentarios;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labelCarrera;

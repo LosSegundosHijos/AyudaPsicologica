@@ -32,6 +32,7 @@ public class ControladorPrincipal {
         vP = new VistaPrincipal(this);
         //Se declara que la VistaPrincipal se haga visible
         vP.setVisible(true);
+        vP.setLocationRelativeTo(null);
     }
     
     //Metodo que inicializa el controlador de autenticacion
@@ -60,6 +61,7 @@ public class ControladorPrincipal {
         cAuten = null;
         vP = new VistaPrincipal(this);
         vP.setVisible(true);
+        vP.setLocationRelativeTo(null);
     }
     
     //Metodo que genera nuevamente la vista
@@ -68,6 +70,7 @@ public class ControladorPrincipal {
         cReg = null;
         vP = new VistaPrincipal(this);
         vP.setVisible(true);
+        vP.setLocationRelativeTo(null);
     }
 
     //Metodo que se encarga de ingresar a una cuenta y su respectivo controlador
@@ -79,6 +82,7 @@ public class ControladorPrincipal {
     public void cerrarSesion() {
         vP = new VistaPrincipal(this);
         vP.setVisible(true);
+        vP.setLocationRelativeTo(null);
         System.out.println("Sesión cerrada");
     }
 

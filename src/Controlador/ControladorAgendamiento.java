@@ -30,6 +30,7 @@ public class ControladorAgendamiento {
     public ControladorAgendamiento(ControladorPrincipal aThis) {
         vAgenda = new VistaAgendamiento(this);
         vAgenda.setVisible(true);
+        vAgenda.setLocationRelativeTo(null);
         cP = aThis;
     }
 

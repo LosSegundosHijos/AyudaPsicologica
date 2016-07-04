@@ -25,6 +25,7 @@ public class ControladorAutenticacion {
         cP = aThis;
         vAuten = new VistaAutenticacion(this);
         vAuten.setVisible(true);
+        vAuten.setLocationRelativeTo(null);
     }
     
     //Metodo que busca los datos de usuario en un repositorio de informacion 
