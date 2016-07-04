@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Controlador;
-
+//HOLA
 import Modelo.BaseDatos;
 import Modelo.Bloque;
 import Modelo.Paciente;
